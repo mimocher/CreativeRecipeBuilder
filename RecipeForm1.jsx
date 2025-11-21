@@ -24,17 +24,6 @@ function RecipeForm(props) {
     newIngredients[index] = value;
     setIngredients(newIngredients);
   };
-  // celle ci n l image
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
   //pour la soumession d form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,8 +61,7 @@ function RecipeForm(props) {
             <input
               type="text"
               value={nom}
-              onChange={(e) => setNom(e.target.value)}
-              placeholder="Ex: Couscous royal"
+              onChange={(e) => setNom(e.target.value)
               required
             />
           </div>
@@ -98,7 +86,7 @@ function RecipeForm(props) {
                   type="text"
                   value={ingredient}
                   onChange={(e) => updateIngredient(index, e.target.value)}
-                  placeholder='{Ingrédient ${index + 1}}'
+                  placeholder='Votre ing'
                 />
                 <button
                   type="button"
@@ -170,4 +158,5 @@ function RecipeForm(props) {
     </div>
   );
 }
+
 export default RecipeForm;
